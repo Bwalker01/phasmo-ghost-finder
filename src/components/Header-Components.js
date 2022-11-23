@@ -4,7 +4,7 @@ import logo from "../phasmo-finder-logo.png";
 class LambdaDemo extends Component {
   constructor(props) {
     super(props);
-    this.state = { loading: false, msg: null };
+    this.state = { loading: false, msg: null, loaded: false };
   }
 
   handleClick = (api) => (e) => {
@@ -13,17 +13,20 @@ class LambdaDemo extends Component {
     this.setState({ loading: true });
     fetch("/.netlify/functions/" + api)
       .then((response) => response.json())
-      .then((json) => this.setState({ loading: false }));
+      .then((json) => this.setState({ loading: false, loaded: true }));
   };
 
   render() {
-    const { loading } = this.state;
+    const { loading, msg, loaded } = this.state;
 
     return (
       <p>
-        <button onClick={this.handleClick("hello")} id="start-button">
-          {loading ? "Loading..." : "START"}
+        <button
+          onClick={this.handleClick("fetch-full-table")}
+          id="start-button">
+          {loading ? "Loading..." : loaded ? "" : "START"}
         </button>
+        <p id="start-button">{loaded ? "Loaded." : ""}</p>
         <br />
       </p>
     );
