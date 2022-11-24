@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import Headering from "./components/Header-Components";
+import Headering from "./components/header-parts/Main-Header";
 import GhostTable from "./components/Ghost Table";
 import EvidenceTable from "./components/Evidence Table";
 import PhraseTable from "./components/Phrase Table";
