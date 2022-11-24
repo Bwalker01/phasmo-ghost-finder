@@ -1,43 +1,67 @@
 import React, { Component } from "react";
-import logo from "../phasmo-finder-logo.png";
 
-class LambdaDemo extends Component {
+class Headering extends Component {
   constructor(props) {
     super(props);
-    this.state = { loading: false, msg: null };
+    this.state = {
+      ghostIndex: true,
+      evidenceIndex: false,
+      phrasesIndex: false,
+    };
   }
 
-  handleClick = (api) => (e) => {
-    e.preventDefault();
+  renderGhostIndex = () => {
+    this.setState({
+      ghostIndex: true,
+      evidenceIndex: false,
+      phrasesIndex: false,
+    });
+  };
 
-    this.setState({ loading: true });
-    fetch("/.netlify/functions/" + api)
-      .then((response) => response.json())
-      .then((json) => this.setState({ loading: false }));
+  renderEvidenceIndex = () => {
+    this.setState({
+      ghostIndex: false,
+      evidenceIndex: true,
+      phrasesIndex: false,
+    });
+  };
+
+  renderPhrases = () => {
+    this.setState({
+      ghostIndex: false,
+      evidenceIndex: false,
+      phrasesIndex: true,
+    });
   };
 
   render() {
-    const { loading } = this.state;
-
     return (
-      <p>
-        <button onClick={this.handleClick("hello")} id="start-button">
-          {loading ? "Loading..." : "START"}
-        </button>
-        <br />
-      </p>
-    );
-  }
-}
-
-class Headering extends Component {
-  render() {
-    return (
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="main-title">PHASMOFINDER</h1>
-        <LambdaDemo />
-      </header>
+      <div class="header">
+        <button class="logo">Phasmofinder</button>
+        <div class="header-right">
+          <button
+            onClick={this.renderGhostIndex}
+            className={this.state.ghostIndex ? "active" : "inactive"}
+            id="ghosts-button">
+            GHOSTS
+          </button>
+          <button
+            onClick={this.renderEvidenceIndex}
+            className={this.state.evidenceIndex ? "active" : "inactive"}
+            id="evidences-button">
+            EVIDENCES
+          </button>
+          <button
+            onClick={this.renderPhrases}
+            className={this.state.phrasesIndex ? "active" : "inactive"}
+            id="phrases-button">
+            PHRASES
+          </button>
+          <a href="https://phasmophobia.fandom.com/wiki/Main_Page">
+            <button id="wiki-button">WIKI</button>
+          </a>
+        </div>
+      </div>
     );
   }
 }
