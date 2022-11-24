@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 class Headering extends Component {
   constructor(props) {
     super(props);
@@ -16,6 +15,7 @@ class Headering extends Component {
       evidenceIndex: false,
       phrasesIndex: false,
     });
+    this.props.updatePage("ghosts");
   };
 
   renderEvidenceIndex = () => {
@@ -24,6 +24,7 @@ class Headering extends Component {
       evidenceIndex: true,
       phrasesIndex: false,
     });
+    this.props.updatePage("evidences");
   };
 
   renderPhrases = () => {
@@ -32,12 +33,14 @@ class Headering extends Component {
       evidenceIndex: false,
       phrasesIndex: true,
     });
+    this.props.updatePage("phrases");
   };
 
   render() {
     return (
       <div class="header">
         <button class="logo">Phasmofinder</button>
+        <div class="heading-center"></div>
         <div class="header-right">
           <button
             onClick={this.renderGhostIndex}
