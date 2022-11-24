@@ -62,7 +62,34 @@
   }
 }
 
-.info-table {
-  height: 150vh;
-  background-color: #282c34;
+.content {
+  display: flex;
+  align-content: center;
+  width: 100%;
+}
+
+table {
+  width: 95%;
+  height: 80%;
+  border: 1px solid #4f4f4f;
+  border-collapse: collapse;
+  border-spacing: 3px;
+  padding: 10px;
+  margin: 0 auto;
+  margin-top: 3%;
+}
+table th {
+  border: 1px solid #4f4f4f;
+  padding: 10px;
+  background: #000000;
+  color: #ffffff;
+  position: sticky;
+  top: 75px;
+}
+table td {
+  border: 1px solid #4f4f4f;
+  text-align: center;
+  padding: 10px;
+  background: #8d587a;
+  color: #000000;
 }

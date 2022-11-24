@@ -29,7 +29,7 @@ class App extends Component {
     return (
       <div className="App">
         <Headering updatePage={this.updatePage} />
-        {page}
+        <div className="content">{page}</div>
       </div>
     );
   }
