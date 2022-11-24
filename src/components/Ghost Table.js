@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import ghostIndex from "../json/ghosts.json";
-
 class GhostTable extends Component {
   render() {
     console.log(ghostIndex);
